@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 添加视口 为了让页面在手机显示不会缩放 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>jd分类页面</title>
+    <!-- 1. 引入swiper的css -->
+    <link rel="stylesheet" href="lib/swiper/css/swiper.css">
+    <!-- 2. 引入分类的less文件  注意带/less rel="stylesheet/less"-->
+    <link rel="stylesheet/less" href="less/category.less">
+    <!-- 3. 引入less.js编译器文件 -->
+    <script src="lib/less/less.js"></script>
+    <script>
+    // 因为这个JS对页面渲染有影响放到前面写
+    function getHtmlFontsize() {
+        // 假设一个设计稿的宽度 750
+        var DesignWidth = 750;
+        var DesignFontSize = 200;
+        // 获取当前视口的宽度
+        var nowWidth = document.documentElement.clientWidth;
+        /*750 / 200 == 375 / 100
+         设计稿宽度 / 设计稿根元素 == 当前屏幕宽度 / 当前屏幕根元素
+         375 / (750 / 200) == 100
+         当屏幕宽度  / (设计稿宽度 / 设计稿的根元素)
+         320 / (750 / 200)  == 85.3333px */
+        /* 4 / 2 == 2 / x
+         2 / ( 4 / 2 )  == 1*/
+        var nowFontSize = nowWidth / (DesignWidth / DesignFontSize);
+        document.documentElement.style.fontSize = nowFontSize + 'px';
+    }
+    getHtmlFontsize();
+    window.addEventListener('resize', getHtmlFontsize);
+    </script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <!-- jd返回图标 -->
+        <a href="#" class="icon-back">
+        </a>
+        <form action="#">
+            <a href="#" class="icon-search"></a>
+            <!-- type="search"输入框的类型search搜索框 tel电话框 number数字框 email邮箱
+            search可以让打字的右下角的回车文字变成搜索 -->
+            <input type="search" placeholder="请输入要搜索的商品">
+        </form>
+        <!-- 菜单图标 -->
+        <a href="#" class="icon-menu"></a>
+    </header>
+    <!-- 中间主体分类区域 -->
+    <main id="main">
+        <!-- 左侧分类 -->
+        <div class="category-left">
+            <!-- 轮播图大容器 -->
+            <div class="swiper-container">
+                <!-- 所有图片容器 -->
+                <div class="swiper-wrapper">
+                    <!-- 每个图片容器 做滑动只需要一张轮播图 -->
+                    <div class="swiper-slide">
+                        <!-- 内容放到轮播图里面 -->
+                        <ul>
+                            <li class="active"><a href="#">热门推荐</a></li>
+                            <li><a href="#">手机数码</a></li>
+                            <li><a href="#">家用电器</a></li>
+                            <li><a href="#">电脑办公</a></li>
+                            <li><a href="#">计生情趣</a></li>
+                            <li><a href="#">美妆护肤</a></li>
+                            <li><a href="#">个护清洁</a></li>
+                            <li><a href="#">汽车用品</a></li>
+                            <li><a href="#">京东超市</a></li>
+                            <li><a href="#">男装</a></li>
+                            <li><a href="#">男鞋</a></li>
+                            <li><a href="#">女装</a></li>
+                            <li><a href="#">女鞋</a></li>
+                            <li><a href="#">母婴童装</a></li>
+                            <li><a href="#">运动户外</a></li>
+                            <li><a href="#">内衣配饰</a></li>
+                            <li><a href="#">食品生鲜</a></li>
+                            <li><a href="#">酒水饮料</a></li>
+                            <li><a href="#">家具家装</a></li>
+                            <li><a href="#">家居厨具</a></li>
+                            <li><a href="#">箱包手袋</a></li>
+                            <li><a href="#">钟表珠宝</a></li>
+                            <li><a href="#">图书音像</a></li>
+                            <li><a href="#">玩具乐器</a></li>
+                            <li><a href="#">医药保健</a></li>
+                            <li><a href="#">宠物生活</a></li>
+                            <li><a href="#">礼品鲜花</a></li>
+                            <li><a href="#">农资绿植</a></li>
+                            <li><a href="#">生活旅行</a></li>
+                            <li><a href="#">奢侈品</a></li>
+                            <li><a href="#">全球购</a></li>
+                            <li><a href="#">国际名牌</a></li>
+                            <li><a href="#">艺术邮币</a></li>
+                            <li><a href="#">二手商品</a></li>
+                            <li><a href="#">特产馆</a></li>
+                            <li><a href="#">京东金融</a></li>
+                            <li><a href="#">拍卖</a></li>
+                            <li><a href="#">房产</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧分类 -->
+        <div class="category-right">
+            <!-- 轮播图大容器 -->
+            <div class="swiper-container">
+                <!-- 所有图片容器 -->
+                <div class="swiper-wrapper">
+                    <!-- 每个图片容器 做滑动只需要一张轮播图 -->
+                    <div class="swiper-slide">
+                        <!-- 内容放到轮播图里面 子容器里面 -->
+                        <div class="jd-brand">
+                            <div class="brand-title">
+                                <h4>热门分类</h4>
+                            </div>
+                            <div class="brand-content">
+                                <ul>
+                                    <li>
+                                        <a><img src="http://img30.360buyimg.com/focus/s140x140_jfs/t22444/92/965398566/5352/2eac5e79/5b487f2eN6c35068e.jpg"><span>空调扇</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img13.360buyimg.com/focus/s140x140_jfs/t20488/4/2136681163/24726/415ebfae/5b487fa3Nf5ff458c.png""><span>鱼竿</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img30.360buyimg.com/focus/s140x140_jfs/t21655/83/2186874549/15932/c273d29b/5b48802aN13fe73de.png"><span>剃须刀</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img14.360buyimg.com/focus/s140x140_jfs/t24349/253/931832357/8172/6838e266/5b48801aN8e64757f.jpg""><span>男鞋</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img14.360buyimg.com/focus/s140x140_jfs/t24100/320/927901901/17896/10c549f7/5b487d86Ndb7b3948.png"><span>微波炉</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img13.360buyimg.com/focus/s140x140_jfs/t20074/108/2532487597/5940/4d67101d/5b48892dNcbde57bd.jpg"><span>瑜伽垫</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t22300/73/231945461/4142/40db87e3/5b055011Nb89b2bda.png"><span>充电宝</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="jd-brand">
+                            <div class="brand-title">
+                                <h4>手机数码</h4>
+                            </div>
+                            <div class="brand-content">
+                                <ul>
+                                    <li>
+                                        <a><img src="http://img30.360buyimg.com/focus/s140x140_jfs/t22444/92/965398566/5352/2eac5e79/5b487f2eN6c35068e.jpg"><span>空调扇</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img13.360buyimg.com/focus/s140x140_jfs/t20488/4/2136681163/24726/415ebfae/5b487fa3Nf5ff458c.png""><span>鱼竿</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img30.360buyimg.com/focus/s140x140_jfs/t21655/83/2186874549/15932/c273d29b/5b48802aN13fe73de.png"><span>剃须刀</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img14.360buyimg.com/focus/s140x140_jfs/t24349/253/931832357/8172/6838e266/5b48801aN8e64757f.jpg""><span>男鞋</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img14.360buyimg.com/focus/s140x140_jfs/t24100/320/927901901/17896/10c549f7/5b487d86Ndb7b3948.png"><span>微波炉</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img13.360buyimg.com/focus/s140x140_jfs/t20074/108/2532487597/5940/4d67101d/5b48892dNcbde57bd.jpg"><span>瑜伽垫</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t22300/73/231945461/4142/40db87e3/5b055011Nb89b2bda.png"><span>充电宝</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="jd-brand">
+                            <div class="brand-title">
+                                <h4>家用电器</h4>
+                            </div>
+                            <div class="brand-content">
+                                <ul>
+                                    <li>
+                                        <a><img src="http://img30.360buyimg.com/focus/s140x140_jfs/t22444/92/965398566/5352/2eac5e79/5b487f2eN6c35068e.jpg"><span>空调扇</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img13.360buyimg.com/focus/s140x140_jfs/t20488/4/2136681163/24726/415ebfae/5b487fa3Nf5ff458c.png""><span>鱼竿</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img30.360buyimg.com/focus/s140x140_jfs/t21655/83/2186874549/15932/c273d29b/5b48802aN13fe73de.png"><span>剃须刀</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img14.360buyimg.com/focus/s140x140_jfs/t24349/253/931832357/8172/6838e266/5b48801aN8e64757f.jpg""><span>男鞋</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img14.360buyimg.com/focus/s140x140_jfs/t24100/320/927901901/17896/10c549f7/5b487d86Ndb7b3948.png"><span>微波炉</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img13.360buyimg.com/focus/s140x140_jfs/t20074/108/2532487597/5940/4d67101d/5b48892dNcbde57bd.jpg"><span>瑜伽垫</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t22300/73/231945461/4142/40db87e3/5b055011Nb89b2bda.png"><span>充电宝</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                    <li>
+                                        <a><img src="http://img20.360buyimg.com/focus/s140x140_jfs/t20128/208/216721929/9242/472993da/5b05522dNa2aae1bb.png""><span>耳机</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 滚动条的容器 -->
+                <div class="swiper-scrollbar"></div>
+            </div>
+        </div>
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <img src="https://m.360buyimg.com/mobilecms/jfs/t15145/137/2502885754/3106/de5e0b14/5aa10cd2N46f18ce6.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="category.html">
+                    <img src="https://m.360buyimg.com/mobilecms/jfs/t19183/49/696491919/3763/dec8cceb/5aa10cdbNa9cd0320.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="cart.html">
+                    <img src="https://m.360buyimg.com/mobilecms/jfs/t18583/69/717127328/4407/5e47882b/5aa10ceaN649eec12.png" alt="">
+                </a>
+            </li>
+            <li>
+                <a href="user.html">
+                    <img src="https://m.360buyimg.com/mobilecms/jfs/t17782/11/2358895717/4684/ad19de7f/5af43af1N04ef5a16.png" alt="">
+                </a>
+            </li>
+        </ul>
+    </footer>
+    <script src="lib/zepto/zepto.js"></script>
+    <!-- 1. 引包引入swiper的js -->
+    <script src="lib/swiper/js/swiper.js"></script>
+    <!-- 2. 引入分类的JS文件 -->
+    <script src="js/category.js"></script>
+</body>
+
+</html>

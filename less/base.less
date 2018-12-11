@@ -1,0 +1,465 @@
+/* 定义jd主题色变量 */
+
+@main-color: #de181b;
+
+/* 1. 放样式初始化 */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    /* 移动端都会设置盒模型为border-box */
+    box-sizing: border-box;
+    /* 去掉内边框 */
+    outline: 0;
+    /* 去除a标签的按住高亮背景色 */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input,
+select {
+    /* 消除输入框和按钮的原生外观，在iOS上加上这个属性才能给按钮和输入框自定义样式 */
+    /* 另外，select加上这个属性后，select的高度就可以改变了 */
+    -webkit-appearance: none;
+}
+
+
+/* 去掉小圆点 */
+
+li {
+    list-style: none;
+}
+
+img {
+    /* 去除图片3px间隙 */
+    vertical-align: middle;
+}
+
+a {
+    background: transparent;
+    text-decoration: none;
+    /* 设置a标签的高亮背景色 手指按住的时候会出现 */
+    -webkit-tap-highlight-color: transparent;
+    color: #666;
+}
+
+
+/* 样式初始化 */
+
+html {
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 62.5%;
+}
+
+body {
+   /*  1rem == 100px
+   100px == 1rem
+   200px == 2rem
+   14px == 0.14rem 
+   要把之前px转成rem 因为参照375写代码的  375根元素100px 
+   把px / 100倍  === px对应的rem*/
+    margin: 0;
+    /* 默认网页字体都使用了14px */
+    font-size: 0.14rem;
+    line-height: 1.5;
+    color: #333333;
+    background-color: white;
+    height: 100%;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+[hidden],
+template {
+    display: none;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+a:active {
+    outline: 0;
+}
+
+a:active {
+    color: #006699;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+dfn {
+    font-style: italic;
+}
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+small {
+    font-size: 80%;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+pre {
+    overflow: auto;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+button {
+    overflow: visible;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+input {
+    line-height: normal;
+    border: 0;
+    outline: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+legend {
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto;
+    resize: vertical;
+}
+
+optgroup {
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+form,
+blockquote {
+    margin: 0;
+}
+
+ul,
+ol,
+li,
+dl,
+dd {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none outside none;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 2;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 0.18rem;
+}
+
+h2 {
+    font-size: 0.16rem;
+}
+
+h3 {
+    font-size: 0.14rem;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+    color: #cccccc;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+    color: #cccccc;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+    color: #cccccc;
+}
+
+
+/* 2. 放所有页面都会用到公共类 */
+
+
+/* 边框的公共类名 */
+
+.bt {
+    border-top: 1px solid #ccc;
+}
+
+.bb {
+    border-bottom: 1px solid #ccc;
+}
+
+.bl {
+    border-left: 1px solid #ccc;
+}
+
+.br {
+    border-right: 1px solid #ccc;
+}
+
+
+/* 头部的公共样式 */
+
+#header {
+    /* 使用伸缩布局 实现左右2边固定中间自适应 */
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    z-index: 999;
+    /* 提取公共样式 类名都以icon- (或者中间包含了空格icon-)开头都设置背景图和大小 定位原点 和裁切 */
+    [class^="icon-"] ,[class*=" icon-"] {
+        /* 为了让a更大更好点击 a会比较大 但是图标没有那么大居中显示
+        背景图默认无法跟随padding 设置背景图定位和裁切让背景图跟着动
+        jd官网在里面嵌套一个span给span添加margin 挤到中间(这种不好) */
+        /* 大的精灵图  大图是2倍图是400*400 使用缩小一半变成200*200*/
+        background-image: url(../images/sprites.png);
+        background-size: 2rem 2rem;
+        /* 这两属性一般会结合起来使用 为了让背景图也跟着padding来动 */
+        /* 背景图定位起点 默认padding-box  设成content-box参照内容来 作为背景定位起点 */
+        background-origin: content-box;
+        /* 背景图的裁切 默认值border-box  设置content-box 可以裁切掉 除了内容区域以外的背景图 */
+        background-clip: content-box;
+    }
+    .icon-logo {
+        width: 0.8rem;
+        height: 0.45rem;
+        padding: 0.1rem;
+        background-position: 0 -1.08rem;
+    }
+    .icon-back {
+        width: 0.4rem;
+        height: 0.4rem;
+        background-position: -0.2rem 0px;
+        padding: 0.1rem;
+    }
+    form {
+        flex: 1;
+        padding: 0.05rem 0;
+        position: relative;
+        /* 搜索图标 */
+        .icon-search {
+            width: 0.2rem;
+            height: 0.2rem;
+            background-image: url(../images/sprites.png);
+            background-size: 2rem 2rem;
+            background-position: -0.6rem -1.08rem;
+            position: absolute;
+            left: 0.05rem;
+            top: 0.12rem;
+        }
+        input {
+            width: 100%;
+            height: 0.35rem;
+            border-radius: 0.16rem;
+            padding-left: 0.3rem;
+        }
+    }
+    .login {
+        width: 0.5rem;
+        height: 0.45rem;
+        color: #fff;
+        text-align: center;
+        line-height: 0.45rem;
+    }
+    .icon-menu {
+        width: 0.4rem;
+        height: 0.4rem;
+        background-position: -0.6rem 0px;
+        padding: 0.1rem;
+    }
+}
+
+
+/* 底部的公共样式 */
+
+
+/* 底部区域 */
+
+#footer {
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+    >ul {
+        display: flex;
+        >li {
+            width: 25vw;
+            >a {
+                display: block;
+                text-align: center;
+                >img {
+                    width: 0.65rem;
+                    height: 0.5rem;
+                }
+            }
+        }
+    }
+}

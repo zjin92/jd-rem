@@ -1,0 +1,170 @@
+/* 引入公共样式初始化代码 */
+
+@import 'base.less';
+
+#slide{
+	ul{
+		width: 1000vw;
+		display:flex;
+		transform:translateX(-100vw);
+	}
+	li{
+		width: 100vw;
+	}
+	/* 3. 设置样式 */
+	img{
+		width: 100vw;
+	}
+	/* 覆盖小圆点的样式 */
+	.swiper-pagination-bullet-active{
+		background-color: #fff;
+	}
+}
+
+/* 导航条区域的样式 */
+#nav{
+	padding:0.1rem 0;
+	.nav-tabs{
+		display:flex;
+		/* flex换行 */
+		flex-wrap:wrap;
+		>li{
+			/* 伸缩布局加了宽度太多了放不下宽度无法生效 给元素添加flex换行就能生效 */
+			width: 25vw;
+			>a{
+				display: block;
+				text-align: center;
+				>img{
+					width: 0.4rem;
+					height: 0.4rem;
+				}
+				>p{
+					margin: 0.05rem 0;
+				}
+			}
+		}
+	}
+}
+
+/* 商品的主体样式 */
+#main{
+	/* 为了让内容往上挤不要和底部重叠在一起 */
+	padding-bottom: 0.5rem;
+	/* 秒杀区域 */
+	.jd-seckill{
+		padding: 0.1rem 0;
+		box-shadow: 0px 0px 0.02rem #666;
+		/* 秒杀的标题 */
+		.seckill-title{
+			display:flex;
+			position: relative;
+			> img{
+				width: 0.2rem;
+				height: 0.25rem;
+				margin-left: 0.1rem;
+			}
+			> span{
+				color:@main-color;
+				margin-left: 0.1rem;
+			}
+			.seckill-time{
+				margin-left: 0.1rem;
+				/* 使用not排除选择器 排除中间3的倍数的元素 */
+				span:not(:nth-child(3n)){
+					background-color: #000;
+					color:#fff;
+					width: 0.15rem;
+					display: inline-block;
+					text-align: center;
+				}
+			}
+			.seckill-more{
+				position: absolute;
+				right: 0.1rem;
+				top: 0;
+				&::after{
+					content:'>';
+				}
+			}
+		}
+		/* 秒杀的内容 */
+		.seckill-content{
+			padding-top:0.1rem;
+			> ul{
+				display:flex;
+				/* 注意如果父元素有padding导致内宽度和视口宽不一样 %和vw不一样大了
+				如果确保和屏幕一样宽度可以使用vw如果不确定 使用% */
+				/* padding: 0.2rem ; */
+				>li{
+					/* width: 33.33%; */
+					width: 33.33vw;
+					>a{
+						display: block;
+						text-align: center;
+						>img{
+							width: 1.1rem;
+						}
+						>span{
+							display: block;
+							color:@main-color;
+							font-size: 0.12rem;
+						}
+						>del{
+							display: block;
+							color:#ccc;
+							font-size: 0.12rem;
+						}
+					}
+				}
+			}
+		}
+	}
+	/* 京东超市 */
+	.jd-market{		
+		.market-title{
+			border-bottom: 1px solid #ccc;
+			>h4{
+				position: relative;
+				padding-left: 0.3rem;
+				line-height: 0.3rem;
+				font-size: 0.16rem;
+				font-weight: normal;
+				&::before{
+					content:'';
+					position: absolute;
+					left: 0.2rem;
+					top: 0.08rem;
+					width: 0.04rem;
+					height: 0.14rem;
+					background-color: @main-color;
+				}
+			}
+		}
+		.market-content{
+			border-bottom: 1px solid #ccc;
+			.product{
+				display:flex;
+				.product-left{
+					width: 50vw;
+					a{
+						display: block;
+						img{
+							width: 100%;
+						}
+					}
+				}
+				.product-right{
+					width: 50vw;
+					a{
+						display: block;
+						img{
+							/* 因为父元素a有边框 内容变小了和屏幕50%不一样 不能使用vw单位 使用100% */
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

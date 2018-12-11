@@ -1,0 +1,102 @@
+/* 引入base.less公共样式文件 */
+
+@import 'base.less';
+#header {
+    background-color: #ccc;
+}
+
+body {
+    /* 高度写死了和视口一样高 */
+    height: 100vh;
+    /* 而且body设置了padding 导致内容减少45-50   == 总高度-95 */
+    padding-top: 0.45rem;
+    padding-bottom: 0.5rem;
+}
+
+
+/* 中间的主体样式 */
+
+#main {
+    display: flex;
+    /* 从body的内容高度继承下来 */
+    height: 100%;
+    .category-left {
+        width: 0.85rem;
+        /* 从main继承下来的 */
+        height: 100%;
+        /* 轮播图大容器高度是固定的 */
+        .swiper-container {
+            /* height: 5.72rem; */
+            /* 从父元素继承下来 */
+            height: 100%;
+            .swiper-slide {
+                /* 轮播图的子容器 高度的由内容撑开的一定（默认100%）覆盖成auto */
+                height: auto;
+                ul {
+                    li {
+                        &.active {
+                            a {
+                                color: @main-color;
+                                background-color: #fff;
+                            }
+                        }
+                        a {
+                            display: block;
+                            height: 0.45rem;
+                            line-height: 0.45rem;
+                            text-align: center;
+                            background-color: #ccc;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .category-right {
+        flex: 1;
+        padding: 0.1rem;
+        height: 100%;
+        /* 轮播图大容器高度是固定的 */
+        .swiper-container {
+            /* height: 5.72rem; */
+            height: 100%;
+            .swiper-slide {
+                /* 轮播图的子容器 高度的由内容撑开的一定（默认100%）覆盖成auto */
+                height: auto;
+                .jd-brand {
+                    .brand-title {
+                        line-height: 0.3rem;
+                        padding-left: 0.1rem;
+                    }
+                    .brand-content {
+                        ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            li {
+                                /* 由于父元素已经宽度自适应不是和屏幕一样宽 就不能使用vw参照屏幕单位 */
+                                width: 33.33%;
+                                a {
+                                    display: block;
+                                    text-align: center;
+                                    img {
+                                        width: 0.7rem;
+                                    }
+                                    span {
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .swiper-scrollbar{
+                background-color: rgba(222, 24, 27, 0.2);
+                width: 0.03rem;
+                .swiper-scrollbar-drag{
+                    background-color: rgba(222, 24, 27, 0.5);
+                }
+            }
+        }
+    }
+}
